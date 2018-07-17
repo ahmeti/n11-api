@@ -1,0 +1,95 @@
+{
+  "result": {
+    "status": "success"
+  },
+  "orderDetail": {
+    "id": 165466097,
+    "orderNumber": "201617297191",
+    "buyer": {
+      "id": 4674011,
+      "fullName": "Ahmet İmamoğlu",
+      "taxId": "",
+      "taxOffice": "",
+      "email": "buyer@gmail.com",
+      "tcId": "12910870111"
+    },
+    "citizenshipId": "12910870111",
+    "invoiceType": "1",
+    "itemList": {
+      "item": {
+        "id": 100872569,
+        "productId": 269701999,
+        "deliveryFeeType": 3,
+        "productSellerCode": "AVD9046",
+        "status": "5",
+        "approvedDate": "17/07/2018",
+        "dueAmount": "229",
+        "installmentChargeWithVAT": "0",
+        "price": "120",
+        "totalMallDiscountPrice": "11",
+        "quantity": 2,
+        "sellerCouponDiscount": "0",
+        "sellerStockCode": "59131A52EXXAA",
+        "version": 1,
+        "attributes": {
+          "attribute": {
+            "name": "Ölçüler",
+            "value": "100x300"
+          }
+        },
+        "sellerDiscount": "0",
+        "mallDiscount": "0",
+        "commission": "36",
+        "sellerInvoiceAmount": "240",
+        "productName": "Saray Halı",
+        "shipmentInfo": {
+          "shipmentCompany": {
+            "id": 381,
+            "name": "PTT Kargo",
+            "shortName": "PTT"
+          },
+          "shipmentCode": 94462142,
+          "campaignNumber": "818407541755344",
+          "shipmentMethod": "1",
+          "campaignNumberStatus": 2
+        },
+        "shippingDate": "",
+        "customTextOptionValues": {},
+        "shipmenCompanyCampaignNumber": "818407541755344"
+      }
+    },
+    "serviceItemList": {},
+    "status": 2,
+    "paymentType": 1,
+    "billingTemplate": {
+      "originalPrice": "240",
+      "totalSellerDiscount": "0",
+      "totalServiceItemOriginalPrice": "0",
+      "installmentChargeWithVat": "0",
+      "sellerInvoiceAmount": "240",
+      "totalMallDiscountPrice": "11",
+      "dueAmount": "229"
+    },
+    "shippingAddress": {
+      "address": "Hürriyet Mh. Merhaba Dünya Sk. No:9",
+      "fullName": "Ahmet İmamoğlu",
+      "city": "Bursa",
+      "district": "Osmangazi",
+      "neighborhood": "Hürriyet Mh.",
+      "postalCode": "16170",
+      "gsm": "5321111111",
+      "tcId": "12910870111"
+    },
+    "billingAddress": {
+      "address": "Hürriyet Mh. Merhaba Dünya Sk. No:9",
+      "fullName": "Ahmet İmamoğlu",
+      "city": "Bursa",
+      "district": "Osmangazi",
+      "neighborhood": "Hürriyet Mh.",
+      "postalCode": "16170",
+      "gsm": "5321111111",
+      "tcId": "12910870111"
+    },
+    "createDate": "16/07/2018 23:09"
+  }
+}
