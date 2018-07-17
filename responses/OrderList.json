@@ -1,0 +1,31 @@
+{
+    "result": {
+        "status": "success"
+    },
+    "pagingData": {
+        "currentPage": 0,
+        "pageSize": 100,
+        "totalCount": 2,
+        "pageCount": 1
+    },
+    "orderList": {
+        "order": [
+            {
+                "id": 165445876,
+                "createDate": "16/07/2018 18:20",
+                "paymentType": 1,
+                "orderNumber": "202547167196",
+                "status": 2,
+                "citizenshipId": "12910870111"
+            },
+            {
+                "id": 165466096,
+                "createDate": "16/07/2018 23:06",
+                "paymentType": 1,
+                "orderNumber": "201617297191",
+                "status": 2,
+                "citizenshipId": "12910870111"
+            }
+        ]
+    }
+}
