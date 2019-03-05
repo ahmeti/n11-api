@@ -3,11 +3,10 @@
 namespace Ahmeti\N11Api;
 
 use Ahmeti\N11Api\Cores\ProductCore;
+use GuzzleHttp\Client;
 
 class Product extends ProductCore
 {
-    private $data;
-
     public function __construct($apiKey = null, $apiSecret = null)
     {
         parent::setAuth($apiKey, $apiSecret);
@@ -132,6 +131,7 @@ class Product extends ProductCore
                 ]
             ]
         ]);
+        return $this;
     }
 
     public function approvalStatus($int)
@@ -170,9 +170,9 @@ class Product extends ProductCore
         return $this;
     }
 
-    public function save()
+    public function save($debug = false)
     {
-        $data = [
+        $product = [
             'productSellerCode' => $this->_productSellerCode,
             'title' => $this->_title,
             'subtitle' => $this->_subtitle,
@@ -198,11 +198,35 @@ class Product extends ProductCore
             'discount' => $this->_discount,
         ];
 
-        $soap = new SoapClient('https://api.n11.com/ws/ProductService.wsdl');
-        $data = [
+        $data = parent::prepareRequest([
             'product' => $product
-        ];
+        ]);
 
-        return $soap->SaveProduct(parent::prepareRequest($data));
+        if($debug){ print_r($data); exit(); }
+
+        try {
+
+            $xml = self::parse($data, 'sch:SaveProductRequest');
+
+            $options = [
+                'headers' => [
+                    'Cache-Control' => 'no-cache',
+                    'Connection' => 'keep-alive',
+                    'Content-Length' => strlen($xml),
+                    'Content-Type' => 'text/xml; charset=UTF8',
+                    'Pragma' => 'no-cache',
+                    'SOAPAction' => '',
+                ],
+                'body' => $xml,
+            ];
+
+            $client = new Client();
+            $response = $client->post('https://api.n11.com/ws/productService/', $options);
+            $xmlObject = $this->getResponse((string)$response->getBody());
+            return $xmlObject->SaveProductResponse;
+
+        }catch ( \Exception $e){
+            return $e;
+        }
     }
 }
