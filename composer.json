@@ -1,0 +1,32 @@
+{
+  "name": "ahmeti/n11-api",
+  "description": "N11 Api (PHP)",
+  "homepage": "https://github.com/ahmeti/n11-api",
+  "keywords": [
+    "n11",
+    "api",
+    "php"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ahmet Imamoglu",
+      "email": "ahmet363@gmail.com",
+      "role": "Developer",
+      "homepage": "https://ahmetimamoglu.com.tr"
+    }
+  ],
+  "require": {
+    "php": ">=5.0.0"
+  },
+  "require-dev": {},
+  "config": {
+    "optimize-autoloader": true,
+    "minimum-stability": "dev"
+  },
+  "autoload": {
+    "psr-0": {
+      "Ahmeti\\N11Api": "src/"
+    }
+  }
+}
