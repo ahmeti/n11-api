@@ -1,22 +1,43 @@
 <?php
 
-namespace Ahmeti\N11Api\Cores;
+namespace Ahmeti\N11Api;
 
-
-class ProductCore extends N11Api
+class N11Core
 {
-    protected   $_productSellerCode, $_title, $_subtitle,
-                $_description, $_specialProductInfoList, $_displayPrice,
-                $_price, $_currencyType, $_preparingDay,
-                $_saleStartDate, $_saleEndDate, $_productCondition,
-                $_shipmentTemplate, $_approvalStatus, $_saleStatus,
-                $_currencyAmount, $_productionDate, $_expirationDate,
-                $_discount;
+    protected $actId, $actPass;
 
-    protected   $_category = [];
-    protected   $_images = [];
-    protected   $_stockItems = [];
-    protected   $_attributes = [];
+    protected function setAuth($actId = null, $actPass = null)
+    {
+        if($actId){
+            $this->actId = $actId;
+        }elseif( getenv('N11_API_KEY') ){
+            $this->actId = getenv('N11_API_KEY');
+        }
+
+        if($actPass){
+            $this->actPass = $actPass;
+        }elseif( getenv('N11_API_SECRET') ){
+            $this->actPass = getenv('N11_API_SECRET');
+        }
+    }
+
+    protected function prepareRequest($data = [])
+    {
+        $params = [
+            'auth' => [
+                'appKey' => $this->actId,
+                'appSecret' => $this->actPass
+            ]
+        ];
+
+        if( is_array($data) ){
+            $params = array_merge($params, $data);
+        }
+
+        return $params;
+    }
+
+
 
     protected function parse($arr, $tag = null)
     {
@@ -26,7 +47,7 @@ class ProductCore extends N11Api
 
         $request =
             '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" '.
-                'xmlns:sch="http://www.n11.com/ws/schemas">'.
+            'xmlns:sch="http://www.n11.com/ws/schemas">'.
             '<soapenv:Header/>'.
             '<soapenv:Body>'.
             '@@content@@'.

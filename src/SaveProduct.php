@@ -5,8 +5,22 @@ namespace Ahmeti\N11Api;
 use Ahmeti\N11Api\Cores\ProductCore;
 use GuzzleHttp\Client;
 
-class Product extends ProductCore
+class SaveProduct extends N11Core
 {
+    private $_productSellerCode, $_title, $_subtitle,
+            $_description, $_specialProductInfoList, $_displayPrice,
+            $_price, $_currencyType, $_preparingDay,
+            $_saleStartDate, $_saleEndDate, $_productCondition,
+            $_shipmentTemplate, $_approvalStatus, $_saleStatus,
+            $_currencyAmount, $_productionDate, $_expirationDate,
+            $_discount;
+
+    private $_category = [];
+    private $_images = [];
+    private $_stockItems = [];
+    private $_attributes = [];
+
+
     public function __construct($apiKey = null, $apiSecret = null)
     {
         parent::setAuth($apiKey, $apiSecret);
@@ -170,7 +184,7 @@ class Product extends ProductCore
         return $this;
     }
 
-    public function save($debug = false)
+    public function run($debug = false)
     {
         $product = [
             'productSellerCode' => $this->_productSellerCode,
